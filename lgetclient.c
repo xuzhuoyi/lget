@@ -16,7 +16,7 @@
 
 int main()
 {
-    printf("lget 3.0.0\nCopyright 2014-2015 LDE Team\nPlease use this software within the local law\n");
+    printf("lget 3.0.1\nCopyright 2014-2015 LDE Team\nPlease use this software within the local law\n");
     // 声明并初始化一个客户端的socket地址结构
     struct sockaddr_in client_addr;
     bzero(&client_addr, sizeof(client_addr));

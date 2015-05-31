@@ -2,19 +2,18 @@
  ============================================================================
  Name        : lgetserver.c
  Author      : Zhuoyi Xu (LDE Team) <xzy476386434@vip.qq.com>
- Version     : 3.0.0
+ Version     : 3.0.1
  Copyright   : Your copyright notice
  Description :
  ============================================================================
  */
 
 
-#include<netinet/in.h> // sockaddr_in
-#include<sys/types.h>  // socket
-#include<sys/socket.h> // socket
-#include<stdio.h>    // printf
-#include<stdlib.h>   // exit
-#include<string.h>   // bzero
+#include <netinet/in.h> // sockaddr_in
+#include <stdio.h>    // printf
+#include <stdlib.h>   // exit
+#include <string.h>   // bzero
+#include <unistd.h>
 
 #define SERVER_PORT 8000
 #define LENGTH_OF_LISTEN_QUEUE 20
@@ -108,7 +107,7 @@ int main(void)
     else
     {
       bzero(buffer, BUFFER_SIZE);
-      int length = 0;
+      size_t length = 0;
       // 每读取一段数据，便将其发送给客户端，循环直到文件读完为止
       while((length = fread(buffer, sizeof(char), BUFFER_SIZE, fp)) > 0)
       {
